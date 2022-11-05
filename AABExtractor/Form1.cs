@@ -72,15 +72,39 @@ namespace AABExtractor
             }
         }
 
-        private void ExecuteCommand(string command)
+        private async void ExecuteCommand(string command)
         {
-            string cmd = $"/k {command}";
+            string cmd = $"/c {command}";
+            HandleProgress(40);
             var proc = new Process();
             proc.StartInfo.FileName = "cmd.exe";
             proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.Arguments = cmd;
             proc.Start();
-            proc.WaitForExit();
+            await proc.WaitForExitAsync();
+            if(proc.ExitCode != 0)
+            {
+                MessageBox.Show("There was a problem with extracting!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HandleProgress(0);
+
+            }
+            else
+            {
+                MessageBox.Show("AAB extracted successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HandleProgress(100);
+                proc.Kill();
+
+
+            }
+        }
+
+        private async Task HandleProgress(int progress)
+        {
+            progressBar1.Maximum = 100;
+            await Task.Delay(200);
+            progressBar1.Value = progress;
+
         }
 
         private void button2_Click(object sender, EventArgs e)

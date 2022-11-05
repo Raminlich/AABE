@@ -43,6 +43,7 @@
             this.keyStorePathText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.aliasText = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // outputPathText
@@ -175,11 +176,19 @@
             this.aliasText.Size = new System.Drawing.Size(482, 23);
             this.aliasText.TabIndex = 13;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 291);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(533, 23);
+            this.progressBar1.TabIndex = 15;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 297);
+            this.ClientSize = new System.Drawing.Size(557, 321);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.aliasText);
             this.Controls.Add(this.keyStoreBrowseButton);
@@ -223,5 +232,6 @@
         private TextBox keyStorePathText;
         private Label label3;
         private TextBox aliasText;
+        private ProgressBar progressBar1;
     }
 }
