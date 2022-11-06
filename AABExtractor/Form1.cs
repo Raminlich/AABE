@@ -1,5 +1,5 @@
 using System.Diagnostics;
-
+using System.Configuration;
 namespace AABExtractor
 {
     public partial class MainForm : Form
@@ -52,6 +52,7 @@ namespace AABExtractor
         private void MainForm_Load(object sender, EventArgs e)
         {
             CheckForJava();
+            LoadSavedPaths();
         }
 
         private void CheckForJava()
@@ -83,19 +84,16 @@ namespace AABExtractor
             proc.StartInfo.Arguments = cmd;
             proc.Start();
             await proc.WaitForExitAsync();
-            if(proc.ExitCode != 0)
+            if (proc.ExitCode != 0)
             {
                 MessageBox.Show("There was a problem with extracting!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 HandleProgress(0);
-
             }
             else
             {
-                MessageBox.Show("AAB extracted successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HandleProgress(100);
+                MessageBox.Show("AAB extracted successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 proc.Kill();
-
-
             }
         }
 
@@ -104,7 +102,6 @@ namespace AABExtractor
             progressBar1.Maximum = 100;
             await Task.Delay(200);
             progressBar1.Value = progress;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -115,7 +112,46 @@ namespace AABExtractor
         private void button1_Click(object sender, EventArgs e)
         {
             GetFile(passwordFilePathText);
+        }
 
+        private void LoadSavedPaths()
+        {
+            try
+            {
+                var appSettings = ConfigurationManager.AppSettings;
+                aliasText.Text = appSettings.Get("alias");
+                keyStorePathText.Text = appSettings.Get("keyStore");
+                passwordFilePathText.Text = appSettings.Get("password");
+                inputPathText.Text = appSettings.Get("input");
+                outputPathText.Text = appSettings.Get("output");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message,"ERROR!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings.Clear();
+                config.AppSettings.Settings.Add("alias", aliasText.Text);
+                config.AppSettings.Settings.Add("keyStore", keyStorePathText.Text);
+                config.AppSettings.Settings.Add("password", passwordFilePathText.Text);
+                config.AppSettings.Settings.Add("input", inputPathText.Text);
+                config.AppSettings.Settings.Add("output", outputPathText.Text);
+                config.Save();
+                ConfigurationManager.RefreshSection(config.AppSettings.SectionInformation.Name);
+                MessageBox.Show("All paths saved successfuly!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

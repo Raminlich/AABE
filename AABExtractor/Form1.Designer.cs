@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.outputPathText = new System.Windows.Forms.TextBox();
             this.outputLable = new System.Windows.Forms.Label();
             this.browseOutputButton = new System.Windows.Forms.Button();
@@ -44,11 +45,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.aliasText = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // outputPathText
             // 
-            this.outputPathText.Location = new System.Drawing.Point(12, 215);
+            this.outputPathText.Location = new System.Drawing.Point(12, 231);
             this.outputPathText.Name = "outputPathText";
             this.outputPathText.Size = new System.Drawing.Size(482, 23);
             this.outputPathText.TabIndex = 0;
@@ -56,7 +62,7 @@
             // outputLable
             // 
             this.outputLable.AutoSize = true;
-            this.outputLable.Location = new System.Drawing.Point(12, 197);
+            this.outputLable.Location = new System.Drawing.Point(12, 213);
             this.outputLable.Name = "outputLable";
             this.outputLable.Size = new System.Drawing.Size(78, 15);
             this.outputLable.TabIndex = 1;
@@ -64,7 +70,7 @@
             // 
             // browseOutputButton
             // 
-            this.browseOutputButton.Location = new System.Drawing.Point(500, 215);
+            this.browseOutputButton.Location = new System.Drawing.Point(500, 231);
             this.browseOutputButton.Name = "browseOutputButton";
             this.browseOutputButton.Size = new System.Drawing.Size(45, 23);
             this.browseOutputButton.TabIndex = 2;
@@ -74,7 +80,7 @@
             // 
             // extractButton
             // 
-            this.extractButton.Location = new System.Drawing.Point(12, 250);
+            this.extractButton.Location = new System.Drawing.Point(12, 266);
             this.extractButton.Name = "extractButton";
             this.extractButton.Size = new System.Drawing.Size(533, 35);
             this.extractButton.TabIndex = 3;
@@ -84,7 +90,7 @@
             // 
             // browseInputButton
             // 
-            this.browseInputButton.Location = new System.Drawing.Point(500, 171);
+            this.browseInputButton.Location = new System.Drawing.Point(500, 187);
             this.browseInputButton.Name = "browseInputButton";
             this.browseInputButton.Size = new System.Drawing.Size(45, 23);
             this.browseInputButton.TabIndex = 6;
@@ -95,7 +101,7 @@
             // inputLable
             // 
             this.inputLable.AutoSize = true;
-            this.inputLable.Location = new System.Drawing.Point(12, 153);
+            this.inputLable.Location = new System.Drawing.Point(12, 169);
             this.inputLable.Name = "inputLable";
             this.inputLable.Size = new System.Drawing.Size(68, 15);
             this.inputLable.TabIndex = 5;
@@ -103,14 +109,14 @@
             // 
             // inputPathText
             // 
-            this.inputPathText.Location = new System.Drawing.Point(12, 171);
+            this.inputPathText.Location = new System.Drawing.Point(12, 187);
             this.inputPathText.Name = "inputPathText";
             this.inputPathText.Size = new System.Drawing.Size(482, 23);
             this.inputPathText.TabIndex = 4;
             // 
             // passwordFileBrowseButton
             // 
-            this.passwordFileBrowseButton.Location = new System.Drawing.Point(500, 127);
+            this.passwordFileBrowseButton.Location = new System.Drawing.Point(500, 143);
             this.passwordFileBrowseButton.Name = "passwordFileBrowseButton";
             this.passwordFileBrowseButton.Size = new System.Drawing.Size(45, 23);
             this.passwordFileBrowseButton.TabIndex = 9;
@@ -121,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 109);
+            this.label1.Location = new System.Drawing.Point(12, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 8;
@@ -129,14 +135,14 @@
             // 
             // passwordFilePathText
             // 
-            this.passwordFilePathText.Location = new System.Drawing.Point(12, 127);
+            this.passwordFilePathText.Location = new System.Drawing.Point(12, 143);
             this.passwordFilePathText.Name = "passwordFilePathText";
             this.passwordFilePathText.Size = new System.Drawing.Size(482, 23);
             this.passwordFilePathText.TabIndex = 7;
             // 
             // keyStoreBrowseButton
             // 
-            this.keyStoreBrowseButton.Location = new System.Drawing.Point(500, 83);
+            this.keyStoreBrowseButton.Location = new System.Drawing.Point(500, 99);
             this.keyStoreBrowseButton.Name = "keyStoreBrowseButton";
             this.keyStoreBrowseButton.Size = new System.Drawing.Size(45, 23);
             this.keyStoreBrowseButton.TabIndex = 12;
@@ -147,7 +153,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 65);
+            this.label2.Location = new System.Drawing.Point(12, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 11;
@@ -155,7 +161,7 @@
             // 
             // keyStorePathText
             // 
-            this.keyStorePathText.Location = new System.Drawing.Point(12, 83);
+            this.keyStorePathText.Location = new System.Drawing.Point(12, 99);
             this.keyStorePathText.Name = "keyStorePathText";
             this.keyStorePathText.Size = new System.Drawing.Size(482, 23);
             this.keyStorePathText.TabIndex = 10;
@@ -163,7 +169,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 21);
+            this.label3.Location = new System.Drawing.Point(12, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 14;
@@ -171,23 +177,56 @@
             // 
             // aliasText
             // 
-            this.aliasText.Location = new System.Drawing.Point(12, 39);
+            this.aliasText.Location = new System.Drawing.Point(12, 55);
             this.aliasText.Name = "aliasText";
             this.aliasText.Size = new System.Drawing.Size(482, 23);
             this.aliasText.TabIndex = 13;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 291);
+            this.progressBar1.Location = new System.Drawing.Point(12, 307);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(533, 23);
             this.progressBar1.TabIndex = 15;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(557, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 321);
+            this.ClientSize = new System.Drawing.Size(557, 336);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.aliasText);
@@ -204,12 +243,18 @@
             this.Controls.Add(this.browseOutputButton);
             this.Controls.Add(this.outputLable);
             this.Controls.Add(this.outputPathText);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MdiChildrenMinimizedAnchorBottom = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AABE";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +278,9 @@
         private Label label3;
         private TextBox aliasText;
         private ProgressBar progressBar1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem quitToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
     }
 }
