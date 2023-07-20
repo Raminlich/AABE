@@ -127,7 +127,7 @@ namespace AABExtractor
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message,"ERROR!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(exc.Message, "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -152,6 +152,11 @@ namespace AABExtractor
             {
                 MessageBox.Show(exc.Message, "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
